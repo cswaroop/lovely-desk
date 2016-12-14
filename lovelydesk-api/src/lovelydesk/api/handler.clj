@@ -9,8 +9,8 @@
     {:swagger
      {:ui "/"
       :spec "/swagger.json"
-      :data {:info {:title "Sample Api"
-                    :description "Compojure Api sample application"}
+      :data {:info {:title "LovelyDesk Api"
+                    :description "LovelyDesk Api sample application"}
              :tags [{:name "math", :description "math with parameters"}
                     {:name "echo", :description "request echoes"}
                     {:name "pizza", :description "pizza Api it is."}]}}}
