@@ -13,7 +13,36 @@
                     :description "LovelyDesk Api sample application"}
              :tags [{:name "math", :description "math with parameters"}
                     {:name "echo", :description "request echoes"}
-                    {:name "pizza", :description "pizza Api it is."}]}}}
+                    {:name "pizza", :description "pizza Api it is."}
+                    {:name "tickets", :description "Tickets"}]}}}
+
+                    (context "/tickets" []
+                      :tags ["tickets"]
+
+                      (GET "/pluss" []
+                        :return Total
+                        :query-params [x :- Long, y :- Long]
+                        :summary "x+y with query-parameters"
+                        (ok {:total (+ x y)}))
+
+                      (POST "/minuss" []
+                        :return Total
+                        :body-params [x :- Long, y :- Long]
+                        :summary "x-y with body-parameters"
+                        (ok {:total (- x y)}))
+
+                      (GET "/timess/:x/:y" []
+                        :return Total
+                        :path-params [x :- Long, y :- Long]
+                        :summary "x*y with path-parameters"
+                        (ok {:total (* x y)}))
+
+                      (GET "/powers" []
+                        :return Total
+                        :header-params [x :- Long, y :- Long]
+                        :summary "x^y with header-parameters"
+                        (ok {:total (long (Math/pow x y))})))
+
 
     (context "/math" []
       :tags ["math"]
